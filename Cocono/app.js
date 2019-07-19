@@ -18,6 +18,8 @@ const store = new MongoDBStore({
   collection: 'sessions',
 });
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 //set session
 app.use(session({
   secret: 'mySecretKey',
@@ -28,6 +30,7 @@ app.use(session({
 
 app.use(function(req, res, next) {
   res.locals.uname = req.session.uname;
+  res.locals.isLoggedIn = req.session.isLoggedIn;
   next();
 });
 

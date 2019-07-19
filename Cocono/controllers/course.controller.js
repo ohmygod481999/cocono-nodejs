@@ -2,8 +2,8 @@ const Course = require('../models/course.model');
 
 module.exports.course_create = function (req,res){
     let course = new Course({
-        name : req.body.name,
-        price : req.body.price
+        name: req.body.name,
+        price: req.body.price
     });
 
     course.save(function (err,next) {

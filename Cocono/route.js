@@ -20,7 +20,10 @@ module.exports.setRoute = function (app) {
         res.render('events');
     });
     app.use('/teachers',function (req,res) {
-        res.render('/teachers');
+        res.render('teachers');
+    });
+    app.use('/blog',function (req,res) {
+        res.render('blog');
     });
 
 };
