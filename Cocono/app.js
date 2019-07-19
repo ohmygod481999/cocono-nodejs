@@ -1,18 +1,35 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var bodyParser = require('body-parser');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
 const session = require('express-session');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-const courseRouter = require('./routes/course.route');
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
+const MongoDBStore = require('connect-mongodb-session')(session);
 const route = require('./route');
 
+const MONGODB_URI = 'mongodb://localhost:27017/cocono';
+
 var app = express();
+const store = new MongoDBStore({
+  uri : MONGODB_URI,
+  collection: 'sessions',
+});
+
+//set session
+app.use(session({
+  secret: 'mySecretKey',
+  resave: false,
+  saveUninitialized: false,
+  store: store
+}));
+
+app.use(function(req, res, next) {
+  res.locals.uname = req.session.uname;
+  next();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,17 +40,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/views',express.static(path.join(__dirname, 'views')));
-app.use('/angular',express.static(path.join(__dirname, 'node_modules/angular')));
 route.setRoute(app);
+
 
 // app.use('/angular.js',function (req,res) {
 //   res.sendFile(__dirname + '/node_modules/angular/angular.js');
 // });
 
 //set up mongoose connection
-const mongoDb = 'mongodb://localhost:27017/cocono';
-mongoose.connect(mongoDb,function (err) {
+mongoose.connect(MONGODB_URI,function (err) {
   if (err) throw err;
   console.log('Connect database successfully!');
 });
@@ -45,13 +60,6 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
-//set session
-app.use(session({
-  secret: 'mySecretKey',
-  resave: true,
-  saveUninitialized: false
-}));
 
 // error handler
 app.use(function(err, req, res, next) {

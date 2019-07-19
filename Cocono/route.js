@@ -1,11 +1,11 @@
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/user.route');
+const indexRouter = require('./routes/index.route');
+const authRouter = require('./routes/auth.route');
 const courseRouter = require('./routes/course.route');
 
 
 module.exports.setRoute = function (app) {
-    app.use('/index', indexRouter);
-    app.use('/users', usersRouter);
+    app.use('/', indexRouter);
+    app.use('/auth', authRouter);
     app.use('/courses',courseRouter);
     app.use('/login',function (req,res) {
         res.render('login');
@@ -16,4 +16,11 @@ module.exports.setRoute = function (app) {
     app.use('/about',function (req,res) {
         res.render('about');
     });
+    app.use('/events',function (req,res) {
+        res.render('events');
+    });
+    app.use('/teachers',function (req,res) {
+        res.render('/teachers');
+    });
+
 };

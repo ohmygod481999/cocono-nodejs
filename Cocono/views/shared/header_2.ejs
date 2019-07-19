@@ -41,11 +41,11 @@
                     <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="active" href="index.php">Trang chủ</a>
+                                <a class="active" href="/index">Trang chủ</a>
                                 <ul class="sub-menu">
-                                    <li><a href="index-2.php">Home 01</a></li>
-                                    <li><a class="active" href="index-3.php">Home 02</a></li>
-                                    <li><a href="index-4.php">Home 03</a></li>
+                                    <li><a href="/index">Home 01</a></li>
+                                    <li><a class="active" href="/index">Home 02</a></li>
+                                    <li><a href="/index">Home 03</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">
@@ -79,7 +79,7 @@
                                     <li><a href="blog-singel.php">Blog Singel</a></li>
                                 </ul>
                             </li>
-                            <?php if(!is_logged_in()){?>
+                            <% if(!uname) { %>
                             <li class="nav-item">
                                 <a href="/login">Đăng nhập</a>
                                 <ul class="sub-menu">
@@ -87,15 +87,15 @@
                                     <li><a href="/signup">Đăng ký</a></li>
                                 </ul>
                             </li>
-                            <?php } else { ?>
+                            <% } else { %>
                             <li class="nav-item">
-                                <a href="#"><?php echo $_SESSION['username']; ?></a>
+                                <a href="#"><%= uname %></a>
                                 <ul class="sub-menu">
                                     <li><a href="#">Thông tin cá nhân</a></li>
-                                    <li><a href="../controller/logout.php">Đăng xuất</a></li>
+                                    <li><a href="/auth/logout">Đăng xuất</a></li>
                                 </ul>
                             </li>
-                            <?php } ?>
+                            <% } %>
 
                         </ul>
                     </div>
