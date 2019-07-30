@@ -1,10 +1,26 @@
 const User = require('../models/user.model');
+const bcrypt = require('bcryptjs');
 let users =[];
 
-module.exports.create = function (req,res) {
+module.exports.create = async function (req,res) {
+    const email = req.body.email;
+    const password = req.body.password;
+    const encryptPassword = await bcrypt.hash(password,12);
+
+    const isUserExist = await User.findOne({email: email}).then((user)=>{
+        if (user) {
+            return true;
+        }
+    });
+
+    if (isUserExist) {
+        res.redirect('/signup');
+        return;
+    }
+
     let user = new User ({
-        user_name: req.body.user_name,
-        password: req.body.password
+        email: email,
+        password: encryptPassword
     });
 
     User.create(user, function (err, data, next) {
@@ -13,33 +29,21 @@ module.exports.create = function (req,res) {
     });
 };
 
-function loadUsers(cb){
-    User.find({},function (err,data) {
-        if(err) return next(err);
-        users = data;
-        cb();
-    });
-}
-
 module.exports.login = function (req,res,next) {
-    let user = {
-        user_name: req.body.user_name,
-        password: req.body.password
-    };
-    loadUsers(()=>{
-        let redirect = false;
-        for (i of users){
-            if(i.user_name==user.user_name && i.password==user.password) {
-                req.session.uname = req.body.user_name;
-                req.session.isLoggedIn = true;
-                redirect = true;
-                res.redirect('/');
-
+    User.findOne({email: req.body.email})
+        .then(async user => {
+            if (!user) {
+                return res.redirect('/login');
             }
-        }
-        if (!redirect) res.send("Invalid username or password <a href='/login'>Back</a>");
-    });
-
+            const doMatch = await bcrypt.compare(req.body.password,user.password);
+            if (doMatch){
+                req.session.uname = req.body.email;
+                req.session.isLoggedIn = true;
+                req.session.user = user;
+                return res.redirect('/');
+            }
+            return res.redirect('/login')
+        });
 };
 
 module.exports.logout = function (req,res,next) {

@@ -2,44 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f165575b-20a8-41d8-bdfd-69ee263a6531" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/models/category.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/trainer.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/admin.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/add-course.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/courses-management.ejs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/admin/edit-course.ejs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/auth.middleware.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/course.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/course.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/course.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/course.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/auth.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/core.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/core.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/core.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/core.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/lodash.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/lodash.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/lodash.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/lodash.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/org.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lodash/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash/tag.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.route.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/course.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/course.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/about.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/about.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/blog-single.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/blog/blog-single.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/blog.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/blog/blog.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/contact-2.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/contact/contact-2.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/contact.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/contact/contact.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/courses-single.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/course/courses-single.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/courses.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/course/courses.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/events-single.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/event/events-single.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/events.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/event/events.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index-2.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index/index-2.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index-3.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index/index-3.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index-4.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index/index-4.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index/index.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/login.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/auth/login.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/shared/footer_2.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/shared/footer_2.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/shared/header.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/shared/header.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/shared/header_2.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/shared/header_2.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/shop-singel.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/shop/shop-singel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/shop/shop.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/signup.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/auth/signup.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/teachers-single.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/teacher/teachers-single.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/teachers.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/teacher/teachers.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/auth/login.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/auth/login.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/auth/signup.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/auth/signup.ejs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +118,10 @@
       <workItem from="1564129739558" duration="16813000" />
       <workItem from="1564191893176" duration="3000" />
       <workItem from="1564221611328" duration="9072000" />
-      <workItem from="1564279011132" duration="1978000" />
+      <workItem from="1564279011132" duration="5218000" />
+      <workItem from="1564396293116" duration="740000" />
+      <workItem from="1564470944253" duration="5000" />
+      <workItem from="1564492949359" duration="7432000" />
     </task>
     <servers />
   </component>
