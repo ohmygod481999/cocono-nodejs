@@ -10,10 +10,26 @@ module.exports.setRoute = function (app) {
     app.use('/courses',courseRouter);
     app.use('/admin',adminRouter);
     app.use('/login',function (req,res) {
-        res.render('auth/login');
+        let message = req.flash('error');
+        console.log(message);
+        if (message.length > 0) {
+            message = message[0];
+        }
+        else message = null;
+        res.render('auth/login',{
+            errorMessage: message
+        });
     });
     app.use('/signup',function (req,res) {
-        res.render('auth/signup');
+        let message = req.flash('error');
+        console.log(message);
+        if (message.length > 0) {
+            message = message[0];
+        }
+        else message = null;
+        res.render('auth/signup',{
+            errorMessage: message
+        });
     });
     app.use('/about',function (req,res) {
         res.render('about');

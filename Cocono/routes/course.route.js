@@ -3,11 +3,8 @@ const router = express.Router();
 const course_controller = require('../controllers/course.controller');
 const auth = require('../middleware/auth.middleware');
 
-router.get('/',async function (req,res) {
-    const courses = await course_controller.course_list();
-    // res.send(courses);
-    res.render('course/courses',{courses : courses});
-});
+router.get('/',course_controller.renderListCourse);
+router.get('/page/:page',course_controller.getCoursePage);
 router.get('/:id',auth.checkLogin,async function (req,res) {
     const id = req.params.id;
     const course = await course_controller.course_detail(id);

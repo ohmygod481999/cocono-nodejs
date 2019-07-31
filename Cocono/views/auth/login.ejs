@@ -126,6 +126,9 @@
                         <h2></h2>
                     </div> <!-- section title -->
                     <div class="main-form pt-45">
+                        <% if (errorMessage) { %>
+                            <div><%= errorMessage %></div>
+                        <% }%>
                         <form id="login-form" action="/auth/login" method="post" data-toggle="validator">
                             <div class="row">
                                 <div class="col-md-12">

@@ -71,6 +71,8 @@
     
 <header id="header-part">
         <h1><%=courses%></h1>
+        <h1>Total course : <%=totalCourse%></h1>
+        <h1>Page number: <%=totalPage%></h1>
         <% include ../shared/header_2 %>
         
     </header>
@@ -130,7 +132,7 @@
                             <li class="nav-item">
                                 <a id="courses-list-tab" data-toggle="tab" href="#courses-list" role="tab" aria-controls="courses-list" aria-selected="false"><i class="fa fa-th-list"></i></a>
                             </li>
-                            <li class="nav-item">Showning 4 0f 24 Results</li>
+                            <li class="nav-item">Showning 6 of <%=totalCourse%> Results</li>
                         </ul> <!-- nav -->
                         
                         <div class="courses-search float-right">
@@ -367,19 +369,28 @@
                 <div class="col-lg-12">
                     <nav class="courses-pagination mt-50">
                         <ul class="pagination justify-content-center">
-                            <li class="page-item">
-                                <a href="#" aria-label="Previous">
-                                    <i class="fa fa-angle-left"></i>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="active" href="#">1</a></li>
-                            <li class="page-item"><a href="#">2</a></li>
-                            <li class="page-item"><a href="#">3</a></li>
-                            <li class="page-item">
-                                <a href="#" aria-label="Next">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </li>
+                            <% if (hasPreviousPage) { %>
+                                <li class="page-item">
+                                    <a href="/courses?page=<%=currentPage-1%>" aria-label="Previous">
+                                        <i class="fa fa-angle-left"></i>
+                                    </a>
+                                </li>
+                            <%}%>
+                            <% for (let i = 1; i<= totalPage; i++){ %>
+                                <li class="page-item"><a <% if (i==currentPage) {%> class="active" <%}%> href="/courses?page=<%=i%>"><%=i%></a></li>
+                            <% } %>
+                            <% if (hasNextPage) { %>
+                                <li class="page-item">
+                                    <a href="/courses?page=<%=1+currentPage%>" aria-label="Next">
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </li>
+<!--                                <li class="page-item">-->
+<!--                                    <a onclick="switchPage(<%=//currentPage%>)" aria-label="Next">-->
+<!--                                        <i class="fa fa-angle-right"></i>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+                            <%}%>
                         </ul>
                     </nav>  <!-- courses pagination -->
                 </div>
@@ -444,6 +455,8 @@
     
     <!--====== Main js ======-->
     <script src="js/main.js"></script>
+
+   <script src="/js/pagination.js"></script>
     
     <!--====== Map js ======-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ"></script>

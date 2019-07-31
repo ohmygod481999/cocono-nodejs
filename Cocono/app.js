@@ -5,10 +5,11 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-
+const csrf = require('csurf');
 const mongoose = require('mongoose');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const route = require('./route');
+const flash = require('connect-flash');
 
 const MONGODB_URI = 'mongodb://localhost:27017/cocono';
 
@@ -17,6 +18,8 @@ const store = new MongoDBStore({
   uri : MONGODB_URI,
   collection: 'sessions',
 });
+
+const csrfProtection = csrf();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -27,8 +30,11 @@ app.use(session({
   saveUninitialized: false,
   store: store
 }));
+// app.use(csrfProtection);
+app.use(flash());
 
 app.use(function(req, res, next) {
+  // res.locals.csrfToken = req.csrfToken();
   res.locals.uname = req.session.uname;
   res.locals.isLoggedIn = req.session.isLoggedIn;
   next();
